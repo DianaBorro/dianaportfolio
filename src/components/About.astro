@@ -1,0 +1,81 @@
+---
+interface Props {
+    className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<section id="about" class={`bg-brand-bg text-brand-text w-full min-h-screen py-24 px-8 md:px-16 flex flex-col justify-center border-t border-zinc-800 ${className}`}>
+    <div class="max-w-6xl mx-auto w-full space-y-24">
+
+        <!-- Top Block: My Experience -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start border-b border-zinc-800 pb-16">
+            <div class="md:col-span-1">
+                <h2 class="text-xs tracking-widest text-brand-muted font-mono uppercase">
+                    My Experience
+                </h2>
+            </div>
+            <div class="md:col-span-2 max-w-2xl">
+                <p class="text-xl md:text-2xl font-light text-zinc-200 leading-relaxed font-sans">
+                    I started programming in 2022, working with &lt;/SALT&gt; and Scania as a software developer, 
+                    gaining valuable experience from tech leads. As my career advanced, 
+                    I decided to transition to an independent web consultancy model to partner directly with businesses. 
+                    I now deliver high-impact, custom software solutions.
+                </p>
+            </div>
+        </div>
+
+        <!-- Bottom Block: The Grid Blueprint -->
+        <div class="space-y-12">
+            <!-- Section Subheading -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-1">
+                    <h2 class="text-xs tracking-widest text-brand-muted font-mono uppercase">
+                        Why Choose This Stack?
+                    </h2>
+                </div>
+            </div>
+
+            <!-- 3-Column Pitch Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-4">
+
+                <!-- Column 1: Fast -->
+                <div class="space-y-4 border-t border-zinc-800/50 pt-6">
+                    <div class="flex items-center space-x-2 font-mono text-xs text-brand-muted tracking-wider">
+                        <span>01 /</span>
+                        <span class="text-white uppercase font-bold">Fast</span>
+                    </div>
+                    <p class="text-sm md:text-base text-zinc-400 font-light leading-relaxed">
+                        Speed on the web is crucial. If someone lands on your website and has to wait more than two seconds before it loads, you potentially lose a customer. I guarantee blazing-fast load times to maximize conversion rates.
+                    </p>
+                </div>
+
+                <!-- Column 2: SEO & Experience -->
+                <div class="space-y-4 border-t border-zinc-800/50 pt-6">
+                    <div class="flex items-center space-x-2 font-mono text-xs text-brand-muted tracking-wider">
+                        <span>02 /</span>
+                        <span class="text-white uppercase font-bold">SEO & UX</span>
+                    </div>
+                    <p class="text-sm md:text-base text-zinc-400 font-light leading-relaxed">
+                        Clean, modern codebases are favored heavily by search engine algorithms. I ship websites that naturally climb search results while keeping user flows incredibly smooth, intuitive, and professional.
+                    </p>
+                </div>
+
+                <!-- Column 3: Secure & Maintenance -->
+                <div class="space-y-4 border-t border-zinc-800/50 pt-6">
+                    <div class="flex items-center space-x-2 font-mono text-xs text-brand-muted tracking-wider">
+                        <span>03 /</span>
+                        <span class="text-white uppercase font-bold">Secure & Reliable</span>
+                    </div>
+                    <p class="text-sm md:text-base text-zinc-400 font-light leading-relaxed">
+                        By building on global serverless architectures, websites are completely immune to traditional database hacking vectors. Zero maintenance bloat means reliable performance that never breaks under pressure.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+

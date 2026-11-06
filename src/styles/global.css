@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+    --color-brand-bg: var(--color-bg);
+    --color-brand-text: var(--color-text-primary);
+    --color-brand-muted: var(--color-text-secondary);
+}
+
+    .animate-reveal-text {
+        animation: revealText 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-reveal-image {
+        animation: revealImage 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+@keyframes revealText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes revealImage {
+    from {
+        opacity: 0;
+        transform: scale(1.02) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+:root {
+    --color-bg: #22252a;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #a1a1aa;
+}
+
+html {
+    color-scheme: dark;
+}
