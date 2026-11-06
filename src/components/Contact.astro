@@ -1,0 +1,82 @@
+---
+const email = "diana@dianaborro.com";
+const githubUrl = "https://github.com/DianaBorro";
+const linkedinUrl = "https://www.linkedin.com/in/diana-borro-822420278/";
+---
+
+<footer id="contact" class="bg-brand-bg text-brand-text w-full py-24 px-8 md:px-16 border-t border-zinc-800 tracking-tight font-sans">
+    <div class="max-w-6xl mx-auto w-full">
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+
+            <!-- Left Column: The Big Pitch & Direct Action Call (Spans 7 cols) -->
+            <div class="md:col-span-7 space-y-8">
+                <div class="space-y-4">
+          <span class="block text-xs font-mono text-brand-muted tracking-wider uppercase">
+            // Let's Work Together
+          </span>
+                    <h2 class="text-4xl md:text-6xl font-bold text-white tracking-tight leading-none">
+                        Ready to secure a premium web presence?
+                    </h2>
+                    <p class="text-zinc-400 font-light text-base md:text-lg max-w-lg leading-relaxed pt-2">
+                        Let's build a secure, lightning-fast platform engineered explicitly for your business growth. Reach out directly to secure your slot this week.
+                    </p>
+                </div>
+
+                <!-- Primary Large Interactive Email Trigger Link -->
+                <div class="pt-4 group inline-block">
+                    <a
+                            href={`mailto:${email}`}
+                            class="text-xl md:text-3xl font-light text-emerald-400 hover:text-white transition-colors duration-300 flex items-center gap-3 border-b border-emerald-500/20 pb-2 group-hover:border-white transition-all"
+                    >
+                        {email}
+                        <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-1 transition-transform">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Verification & Developer Portals (Spans 5 cols) -->
+            <div class="md:col-span-5 md:pt-16 space-y-12">
+
+
+                <div class="space-y-4 border-l border-zinc-800 pl-6">
+                    <h3 class="text-xs font-mono text-brand-muted tracking-wider uppercase">
+                        Professional Networks
+                    </h3>
+                    <ul class="space-y-3 font-light text-sm md:text-base">
+                        <li>
+                            <a
+                                    href={linkedinUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-zinc-300 hover:text-emerald-400 transition-colors duration-200 flex items-center gap-2"
+                            >
+                                LinkedIn <span class="text-zinc-600 text-xs">↗</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                    href={githubUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-zinc-300 hover:text-emerald-400 transition-colors duration-200 flex items-center gap-2"
+                            >
+                                GitHub Code Repository <span class="text-zinc-600 text-xs">↗</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tiny Footer Copyright Meta Layer -->
+                <div class="text-[11px] font-mono text-zinc-600 pl-6 select-none">
+                    &copy; {new Date().getFullYear()} Diana Borro. All rights reserved.<br />
+                    Engineered using Astro & Tailwind CSS v4.
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</footer>

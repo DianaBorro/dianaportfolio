@@ -1,0 +1,85 @@
+---
+// Header.astro - Navbar Premium ad attivazione dinamica
+---
+
+<!-- Il contenitore parte invisibile (opacity-0 -translate-y-4) -->
+<header id="global-header" class="fixed top-0 left-0 w-full z-50 bg-brand-bg/80 backdrop-blur-md border-b border-zinc-800/50 py-4 px-8 md:px-16 transition-all duration-500 ease-out opacity-0 -translate-y-4 pointer-events-none">
+    <div class="max-w-6xl mx-auto w-full flex justify-between items-center font-sans">
+
+        <!-- Logo / Nome -->
+        <a href="#top" class="text-white font-bold text-sm tracking-tight hover:text-zinc-300 transition-colors">
+            Diana Borro
+        </a>
+
+        <!-- Navigazione Dinamica -->
+        <nav>
+            <ul class="flex space-x-6 font-mono text-[11px] tracking-wider uppercase text-brand-muted">
+                <li><a href="#about" class="nav-link hover:text-white transition-colors">About</a></li>
+                <li><a href="#designs" class="nav-link hover:text-white transition-colors">Performance</a></li>
+                <li><a href="#contact" class="nav-link hover:text-white transition-colors text-emerald-400 font-bold">Contact</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<script>
+    // Aspetta che il DOM sia completamente pronto
+    document.addEventListener('DOMContentLoaded', () => {
+        const header = document.getElementById('global-header');
+
+        // 1. GESTIONE DELLA COMPARSA DELLA NAVBAR
+        // Monitoriamo la sezione principale (l'intero tag <main> della tua Hero)
+        const heroSection = document.querySelector('main');
+
+        if (heroSection && header) {
+            const heroObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        // Se la Hero è uscita dallo schermo, mostra la navbar
+                        header.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
+                    } else {
+                        // Se l'utente è in cima alla Hero, nascondi la navbar
+                        header.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
+                    }
+                });
+            }, { threshold: 0.1 }); // Si attiva quando rimane solo il 10% della Hero
+
+            heroObserver.observe(heroSection);
+        }
+
+        // 2. GESTIONE DELL'AGGIORNAMENTO AUTOMATICO DELL'URL (HASH)
+        // Selezioniamo tutte le sezioni principali della pagina
+        const sections = document.querySelectorAll('section, main');
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Se la sezione occupa la maggior parte dello schermo
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    if (id) {
+                        // Aggiorna l'URL nel browser senza ricaricare la pagina o scattare
+                        history.replaceState(null, '', `#${id}`);
+
+                        // Opzionale: Evidenzia il link attivo nella navbar
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('text-white');
+                            } else {
+                                link.classList.remove('text-white');
+                            }
+                        });
+                    } else {
+                        // Se siamo sulla Hero (che ha il tag main senza id), resettiamo l'hash
+                        history.replaceState(null, '', window.location.pathname);
+                    }
+                }
+            });
+        }, {
+            // Si attiva quando la sezione occupa il centro della schermata del browser
+            rootMargin: '-40% 0px -40% 0px'
+        });
+
+        sections.forEach(section => sectionObserver.observe(section));
+    });
+</script>

@@ -1,0 +1,82 @@
+---
+interface DesignStyle {
+    id: string;
+    num: string;
+    title: string;
+    description: string;
+    previewUrl: string;
+    }
+
+const designStyles: DesignStyle[] = [
+{
+    id: "conversion",
+    num: "01",
+    title: "High-Conversion UX",
+    description: "Anxiety-reducing layouts and crisp user flows designed to guide visitors smoothly toward booking a consultation or picking up the phone.",
+    previewUrl: "/conversion.jpg",
+    },
+{
+    id: "authority",
+    num: "02",
+    title: "Brand Authority",
+    description: "Elite, editorial typography paired with razor-sharp structural grids that instantly convey clinical competence, prestige, and market trust.",
+    previewUrl: "/authority.jpg",
+    },
+{
+    id: "velocity",
+    num: "03",
+    title: "Serverless Velocity",
+    description: "Built on lightning-fast modern engines that load in less than a second on mobile devices, boosting organic Google SEO rankings naturally.",
+    previewUrl: "/velocity.jpg",
+    }
+];
+---
+<section id="designs" class="bg-brand-bg text-brand-text w-full min-h-screen py-24 px-8 md:px-16 border-t border-zinc-800">
+    <div class="max-w-6xl mx-auto w-full space-y-16">
+
+        <!-- Premium Engineering Heading -->
+        <div class="flex justify-end w-full">
+            <h2 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight font-sans text-right select-none leading-none">
+                Engineered for<br />Performance
+            </h2>
+        </div>
+
+        <!-- 3-Column Interactive Niche Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
+            {designStyles.map((style) => (
+                    <div class="flex flex-col space-y-4 group">
+
+                        <!-- Number and Strategic Title Block -->
+                        <div class="space-y-1 font-sans">
+            <span class="block text-xs font-mono text-brand-muted tracking-wider">
+              {style.num}
+            </span>
+                            <h3 class="text-xl font-bold text-white tracking-tight">
+                                {style.title}
+                            </h3>
+                        </div>
+
+                        <!-- Interactive Animation Container -->
+                        <div class="relative w-full aspect-[16/10] bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800 shadow-xl group-hover:border-zinc-700 transition-colors duration-300">
+
+                            <!-- Scrolling Web Viewport Simulation Layer -->
+                            <div
+                                    class="w-full h-full bg-cover bg-top transition-all duration-[4s] ease-in-out cursor-pointer group-hover:bg-bottom"
+                                    style={`background-image: url('${style.previewUrl}');`}
+                            ></div>
+
+                            <!-- Ambient Interactive Overlay Glass -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+                        </div>
+
+                        <!-- Strategy Description Block -->
+                        <p class="text-sm text-zinc-400 font-light leading-relaxed max-w-sm">
+                            {style.description}
+                        </p>
+
+                    </div>
+            ))}
+        </div>
+
+    </div>
+</section>
