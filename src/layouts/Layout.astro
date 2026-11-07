@@ -6,11 +6,11 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://il-tuo-sito.com');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="it">
+<html lang="en">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,13 +20,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://il-tuo-s
 	<title>{title}</title>
 	<meta name="description" content={description} />
 	<link rel="canonical" href={canonicalURL} />
+	<link rel="sitemap" href="/sitemap-index.xml" />
 
 	<!-- 2. Open Graph (Per far vedere l'anteprima quando il sito si condivide su WhatsApp/Social) -->
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={canonicalURL} />
-	<meta property="og:image" content="/default-og-image.jpg" />
+	<meta property="og:image" content="https://dianaborro.com/default-og-image.jpg" />
 </head>
 <body>
 <slot />
